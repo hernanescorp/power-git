@@ -1,0 +1,5 @@
+relationship cc263f02-93a3-4a3f-9696-51cfda48fedd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'pub?output=csv'.'Fecha Contab'
+	toColumn: LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78.Date
+

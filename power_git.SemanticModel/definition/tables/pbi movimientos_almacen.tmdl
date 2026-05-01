@@ -1,0 +1,66 @@
+table 'pbi movimientos_almacen'
+	lineageTag: 313bbb06-d095-4692-9988-c1cb84ad65dd
+
+	column Material
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(50)
+		lineageTag: 84a2750d-1948-47fc-b83d-f8b116e153a5
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(50)
+		lineageTag: 8e8503d9-ef41-4a87-9e84-45d7f07fed32
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_movimiento
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(20)
+		lineageTag: d422b18b-dc24-4526-9158-289a8ee9c482
+		summarizeBy: none
+		sourceColumn: tipo_movimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctd
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8a6ca51a-37ab-4d11-8dea-3e0d360a9764
+		summarizeBy: sum
+		sourceColumn: ctd
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4f27d670-575d-4139-9c7f-84cca9e763ce
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'pbi movimientos_almacen' = m
+		mode: directQuery
+		source =
+				let
+				    Origen = Sql.Database("hernan-sql-server.database.windows.net", "free-sql-db-3502640"),
+				    pbi_movimientos_almacen = Origen{[Schema="pbi",Item="movimientos_almacen"]}[Data]
+				in
+				    pbi_movimientos_almacen
+

@@ -1,0 +1,56 @@
+table 'pub?output=csv'
+	lineageTag: cdeef41c-7aa0-4341-89ab-f3f63015f492
+
+	column Material
+		dataType: string
+		lineageTag: 4b9ef894-279d-4e8f-ab8a-737cf736c31a
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		lineageTag: 2a6144dc-bd65-4d67-99d7-dfafb1fb2f5d
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ctd de cajas'
+		dataType: int64
+		formatString: 0
+		lineageTag: d52631a8-a8f9-456e-9ba0-72ecdef40096
+		summarizeBy: sum
+		sourceColumn: Ctd de cajas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fecha Contab'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4678e011-6c76-4d54-a53f-9c3c6880fbe0
+		summarizeBy: none
+		sourceColumn: Fecha Contab
+
+		variation Variación
+			isDefault
+			relationship: cc263f02-93a3-4a3f-9696-51cfda48fedd
+			defaultHierarchy: LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'pub?output=csv' = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3vm04DuOh2-f5apkPk2qSBalaeA4-mRZgN2mFBN_uvyvWC2VuM7VvG6__TXlLAg/pub?output=csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Material", type text}, {"Almacen", type text}, {"Ctd de cajas", Int64.Type}, {"Fecha Contab", type date}})
+				in
+				    #"Tipo cambiado"
+
+	annotation PBI_ResultType = Table
+

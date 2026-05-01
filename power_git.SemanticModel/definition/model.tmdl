@@ -10,5 +10,13 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBI_QueryOrder = ["pub?output=csv","pbi movimientos_almacen","Table001 (Page 1-2)"]
+
+ref table 'pub?output=csv'
+ref table DateTableTemplate_d481b778-0962-47e0-97ca-b84b8cda0f97
+ref table LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78
+ref table 'pbi movimientos_almacen'
+ref table 'Table001 (Page 1-2)'
+
 ref cultureInfo es-ES
 
