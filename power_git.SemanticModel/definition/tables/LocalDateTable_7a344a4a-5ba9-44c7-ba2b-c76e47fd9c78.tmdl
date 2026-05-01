@@ -110,7 +110,7 @@ table LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78
 
 	partition LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78 = calculated
 		mode: import
-		source = Calendar(Date(Year(MIN('pub?output=csv'[Fecha Contab])), 1, 1), Date(Year(MAX('pub?output=csv'[Fecha Contab])), 12, 31))
+		source = Calendar(Date(Year(MIN('fact_inventarios'[Fecha Contab])), 1, 1), Date(Year(MAX('fact_inventarios'[Fecha Contab])), 12, 31))
 
 	annotation __PBI_LocalDateTable = true
 

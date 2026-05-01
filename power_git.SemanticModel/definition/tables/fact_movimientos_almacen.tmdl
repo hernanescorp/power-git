@@ -1,13 +1,13 @@
-table 'pbi movimientos_almacen'
+table fact_movimientos_almacen
 	lineageTag: 313bbb06-d095-4692-9988-c1cb84ad65dd
 
-	column Material
+	column cod_producto
 		dataType: string
 		isNullable: false
 		sourceProviderType: varchar(50)
 		lineageTag: 84a2750d-1948-47fc-b83d-f8b116e153a5
 		summarizeBy: none
-		sourceColumn: Material
+		sourceColumn: cod_producto
 
 		annotation SummarizationSetBy = Automatic
 
@@ -55,12 +55,17 @@ table 'pbi movimientos_almacen'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	partition 'pbi movimientos_almacen' = m
+	partition fact_movimientos_almacen = m
 		mode: directQuery
 		source =
 				let
 				    Origen = Sql.Database("hernan-sql-server.database.windows.net", "free-sql-db-3502640"),
-				    pbi_movimientos_almacen = Origen{[Schema="pbi",Item="movimientos_almacen"]}[Data]
+				    pbi_movimientos_almacen = Origen{[Schema="pbi",Item="movimientos_almacen"]}[Data],
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(pbi_movimientos_almacen,{{"Material", "cod_producto"}})
 				in
-				    pbi_movimientos_almacen
+				    #"Columnas con nombre cambiado"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
 

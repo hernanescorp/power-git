@@ -1,11 +1,11 @@
-table 'pub?output=csv'
+table fact_inventarios
 	lineageTag: cdeef41c-7aa0-4341-89ab-f3f63015f492
 
-	column Material
+	column cod_producto
 		dataType: string
 		lineageTag: 4b9ef894-279d-4e8f-ab8a-737cf736c31a
 		summarizeBy: none
-		sourceColumn: Material
+		sourceColumn: cod_producto
 
 		annotation SummarizationSetBy = Automatic
 
@@ -42,15 +42,18 @@ table 'pub?output=csv'
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	partition 'pub?output=csv' = m
+	partition fact_inventarios = m
 		mode: import
 		source =
 				let
 				    Origen = Csv.Document(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3vm04DuOh2-f5apkPk2qSBalaeA4-mRZgN2mFBN_uvyvWC2VuM7VvG6__TXlLAg/pub?output=csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
-				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Material", type text}, {"Almacen", type text}, {"Ctd de cajas", Int64.Type}, {"Fecha Contab", type date}})
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Material", type text}, {"Almacen", type text}, {"Ctd de cajas", Int64.Type}, {"Fecha Contab", type date}}),
+				    #"Columnas con nombre cambiado" = Table.RenameColumns(#"Tipo cambiado",{{"Material", "cod_producto"}})
 				in
-				    #"Tipo cambiado"
+				    #"Columnas con nombre cambiado"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegación
 
