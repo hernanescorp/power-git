@@ -1,0 +1,28 @@
+table dim_almacen
+	lineageTag: e13ae8ce-3785-4b30-99a9-6730eb4b2197
+
+	column Almacen
+		dataType: string
+		lineageTag: 77cfbf97-4d62-4bde-9c07-8ab8237f68c0
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_almacen = m
+		mode: import
+		queryGroup: dimensiones
+		source =
+				let
+				    Origen = Csv.Document(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3vm04DuOh2-f5apkPk2qSBalaeA4-mRZgN2mFBN_uvyvWC2VuM7VvG6__TXlLAg/pub?output=csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"Column2"}),
+				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Otras columnas quitadas", [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Almacen", type text}}),
+				    #"Duplicados quitados" = Table.Distinct(#"Tipo cambiado")
+				in
+				    #"Duplicados quitados"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

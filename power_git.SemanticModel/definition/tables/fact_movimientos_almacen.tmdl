@@ -57,6 +57,7 @@ table fact_movimientos_almacen
 
 	partition fact_movimientos_almacen = m
 		mode: directQuery
+		queryGroup: hechos_facts
 		source =
 				let
 				    Origen = Sql.Database("hernan-sql-server.database.windows.net", "free-sql-db-3502640"),

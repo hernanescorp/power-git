@@ -44,6 +44,7 @@ table fact_inventarios
 
 	partition fact_inventarios = m
 		mode: import
+		queryGroup: hechos_facts
 		source =
 				let
 				    Origen = Csv.Document(Web.Contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3vm04DuOh2-f5apkPk2qSBalaeA4-mRZgN2mFBN_uvyvWC2VuM7VvG6__TXlLAg/pub?output=csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),

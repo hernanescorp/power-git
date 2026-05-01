@@ -3,3 +3,19 @@ relationship cc263f02-93a3-4a3f-9696-51cfda48fedd
 	fromColumn: fact_inventarios.'Fecha Contab'
 	toColumn: LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78.Date
 
+relationship AutoDetected_c99ab45d-eab7-4214-88a3-7e9394915026
+	fromColumn: fact_inventarios.Almacen
+	toColumn: dim_almacen.Almacen
+
+relationship bb308f2f-0b8c-2497-57d2-c98165163c03
+	fromColumn: fact_movimientos_almacen.Almacen
+	toColumn: dim_almacen.Almacen
+
+relationship c135dc3e-1b83-8f2d-7485-ca656dcfaafc
+	fromColumn: fact_movimientos_almacen.cod_producto
+	toColumn: dim_productos.cod_producto
+
+relationship 97fc0c85-1676-4924-9f22-1d84cf2969b5
+	fromColumn: fact_inventarios.cod_producto
+	toColumn: dim_productos.cod_producto
+

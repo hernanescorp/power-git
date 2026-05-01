@@ -47,6 +47,7 @@ table dim_productos
 
 	partition dim_productos = m
 		mode: import
+		queryGroup: dimensiones
 		source =
 				let
 				    Origen = Pdf.Tables(AzureStorage.BlobContents("https://hernanalmacen.blob.core.windows.net/csv-data/dataset_productos_powerquery.pdf"), [Implementation="1.3"]),
