@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 50,
+        "x": 0,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 342,
-            "y": 236
+            "x": 1113,
+            "y": 541
           },
           "nodeIndex": "fact_inventarios",
           "nodeLineageTag": "cdeef41c-7aa0-4341-89ab-f3f63015f492",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 343,
-            "y": 0
+            "x": 1110,
+            "y": 217
           },
           "nodeIndex": "fact_movimientos_almacen",
           "nodeLineageTag": "313bbb06-d095-4692-9988-c1cb84ad65dd",
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 726,
-            "y": 110
+            "x": 2079,
+            "y": 335
           },
           "nodeIndex": "dim_productos",
           "nodeLineageTag": "62596671-fd85-4ddc-af4e-6c52b39eabff",
@@ -49,8 +49,8 @@
         },
         {
           "location": {
-            "x": 0,
-            "y": 176.5
+            "x": 117,
+            "y": 431.5
           },
           "nodeIndex": "dim_almacen",
           "nodeLineageTag": "e13ae8ce-3785-4b30-99a9-6730eb4b2197",
