@@ -45,7 +45,7 @@ table fact_movimientos_almacen
 	column fecha
 		dataType: dateTime
 		isNullable: false
-		formatString: Long Date
+		formatString: Short Date
 		sourceProviderType: date
 		lineageTag: 4f27d670-575d-4139-9c7f-84cca9e763ce
 		summarizeBy: none

@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 1113,
-            "y": 541
+            "y": 649.5
           },
           "nodeIndex": "fact_inventarios",
           "nodeLineageTag": "cdeef41c-7aa0-4341-89ab-f3f63015f492",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 1110,
-            "y": 217
+            "y": 325.5
           },
           "nodeIndex": "fact_movimientos_almacen",
           "nodeLineageTag": "313bbb06-d095-4692-9988-c1cb84ad65dd",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 2079,
-            "y": 335
+            "y": 443.5
           },
           "nodeIndex": "dim_productos",
           "nodeLineageTag": "62596671-fd85-4ddc-af4e-6c52b39eabff",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 117,
-            "y": 431.5
+            "y": 540
           },
           "nodeIndex": "dim_almacen",
           "nodeLineageTag": "e13ae8ce-3785-4b30-99a9-6730eb4b2197",
@@ -59,10 +59,23 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 687,
+            "y": 0
+          },
+          "nodeIndex": "dim_time",
+          "nodeLineageTag": "cee6c456-b795-42f6-9c7f-b1621a332a1c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
-      "zoomValue": 27.527405602923267,
+      "zoomValue": 100,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

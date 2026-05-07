@@ -33,11 +33,6 @@ table fact_inventarios
 		summarizeBy: none
 		sourceColumn: Fecha Contab
 
-		variation Variación
-			isDefault
-			relationship: cc263f02-93a3-4a3f-9696-51cfda48fedd
-			defaultHierarchy: LocalDateTable_7a344a4a-5ba9-44c7-ba2b-c76e47fd9c78.'Jerarquía de fechas'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
