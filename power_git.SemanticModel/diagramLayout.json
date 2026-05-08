@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 977,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -72,10 +72,23 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1317.8106124363464,
+            "y": 115.22991391678627
+          },
+          "nodeIndex": "fact_proximas_entregas",
+          "nodeLineageTag": "ee4ef1b9-7305-4bc9-9c9a-5b86822dc534",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
-      "zoomValue": 100,
+      "zoomValue": 56.597645148193266,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

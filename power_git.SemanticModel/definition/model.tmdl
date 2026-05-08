@@ -3,6 +3,7 @@ model Model
 	defaultPowerBIDataSourceVersion: powerBI_V3
 	sourceQueryCulture: es-ES
 	dataAccessOptions
+		fastCombine
 		legacyRedirects
 		returnErrorValuesAsNull
 
@@ -18,13 +19,16 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["fact_inventarios","fact_movimientos_almacen","dim_productos","dim_almacen"]
+annotation PBI_QueryOrder = ["fact_inventarios","fact_movimientos_almacen","dim_productos","dim_almacen","dim_proveedores","fact_proximas_entregas"]
 
 ref table fact_inventarios
 ref table fact_movimientos_almacen
 ref table dim_productos
 ref table dim_almacen
 ref table dim_time
+ref table fact_proximas_entregas
+ref table DateTableTemplate_97ba0db5-e0e0-4960-9d26-3c9247d5dd47
+ref table LocalDateTable_f6861b10-6910-4a64-99cc-45545ed18aff
 
 ref cultureInfo es-ES
 

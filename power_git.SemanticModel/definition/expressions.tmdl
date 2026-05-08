@@ -1,0 +1,15 @@
+expression dim_proveedores =
+		let
+		    Origen = Sql.Database("graxiano.database.windows.net", "free-sql-db-3910009"),
+		    pbi_proximas_entregas = Origen{[Schema="pbi",Item="proximas_entregas"]}[Data],
+		    #"Otras columnas quitadas" = Table.SelectColumns(pbi_proximas_entregas,{"cod_producto", "cod_proveedor", "desc_proveedor"}),
+		    #"Filas agrupadas" = Table.Group(#"Otras columnas quitadas", {"cod_producto"}, {{"cod_proveedor", each List.Max([cod_proveedor]), type text}, {"desc_proveedor", each List.Max([desc_proveedor]), type text}})
+		in
+		    #"Filas agrupadas"
+	lineageTag: 1a97ee1e-3b8f-4daf-9b98-2602c2f07557
+	queryGroup: dimensiones
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

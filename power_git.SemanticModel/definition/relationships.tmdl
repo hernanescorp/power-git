@@ -22,3 +22,8 @@ relationship 73ce3f6e-dfe1-076e-e47a-4f920aee8794
 	fromColumn: fact_inventarios.'Fecha Contab'
 	toColumn: dim_time.Date
 
+relationship 1d1924df-43ab-405e-a52d-9379bae866b6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_proximas_entregas.fecha_entrega
+	toColumn: LocalDateTable_f6861b10-6910-4a64-99cc-45545ed18aff.Date
+

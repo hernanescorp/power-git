@@ -45,6 +45,22 @@ table dim_productos
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column cod_proveedor
+		dataType: string
+		lineageTag: 84d48dc0-cf74-486d-b1b2-13eda36e80a1
+		summarizeBy: none
+		sourceColumn: cod_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column desc_proveedor
+		dataType: string
+		lineageTag: 42170af3-d995-478e-be66-04e7823105f0
+		summarizeBy: none
+		sourceColumn: desc_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_productos = m
 		mode: import
 		queryGroup: dimensiones
@@ -61,9 +77,11 @@ table dim_productos
 				    #"Tipo cambiado con configuración regional" = Table.TransformColumnTypes(#"Texto extraído antes del delimitador1", {{"tamanio_pieza", type number}}, "en-US"),
 				    #"Tipo cambiado con configuración regional1" = Table.TransformColumnTypes(#"Tipo cambiado con configuración regional", {{"peso_pieza", type number}}, "en-US"),
 				    #"Texto extraído después del delimitador" = Table.TransformColumns(#"Tipo cambiado con configuración regional1", {{"desc_producto", each Text.AfterDelimiter(_, "-"), type text}}),
-				    #"Texto recortado" = Table.TransformColumns(#"Texto extraído después del delimitador",{{"desc_producto", Text.Trim, type text}})
+				    #"Texto recortado" = Table.TransformColumns(#"Texto extraído después del delimitador",{{"desc_producto", Text.Trim, type text}}),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Texto recortado", {"cod_producto"}, dim_proveedores, {"cod_producto"}, "dim_proveedores", JoinKind.LeftOuter),
+				    #"Se expandió dim_proveedores" = Table.ExpandTableColumn(#"Consultas combinadas", "dim_proveedores", {"cod_proveedor", "desc_proveedor"}, {"cod_proveedor", "desc_proveedor"})
 				in
-				    #"Texto recortado"
+				    #"Se expandió dim_proveedores"
 
 	annotation PBI_ResultType = Table
 

@@ -1,0 +1,74 @@
+table fact_proximas_entregas
+	lineageTag: ee4ef1b9-7305-4bc9-9c9a-5b86822dc534
+
+	column id_entrega
+		dataType: int64
+		formatString: 0
+		lineageTag: 12e027b7-138c-4087-97ec-217e50f68349
+		summarizeBy: sum
+		sourceColumn: id_entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_producto
+		dataType: string
+		lineageTag: 3d14dc42-753f-4962-bbd2-5743e4dfa737
+		summarizeBy: none
+		sourceColumn: cod_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_entrega
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bfac44d8-dd34-4220-8697-9bad7bb0adf9
+		summarizeBy: none
+		sourceColumn: fecha_entrega
+
+		variation Variación
+			isDefault
+			relationship: 1d1924df-43ab-405e-a52d-9379bae866b6
+			defaultHierarchy: LocalDateTable_f6861b10-6910-4a64-99cc-45545ed18aff.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cod_proveedor
+		dataType: string
+		lineageTag: 687ca7bb-447c-4733-92cf-69bd43f02dad
+		summarizeBy: none
+		sourceColumn: cod_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column desc_proveedor
+		dataType: string
+		lineageTag: 22aacfcd-929e-4608-8e86-a9170dfda72a
+		summarizeBy: none
+		sourceColumn: desc_proveedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: int64
+		formatString: 0
+		lineageTag: 7d26e678-f2fa-4d7f-aeca-4e79dd0048a2
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_proximas_entregas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database("graxiano.database.windows.net", "free-sql-db-3910009"),
+				    pbi_proximas_entregas = Origen{[Schema="pbi",Item="proximas_entregas"]}[Data]
+				in
+				    pbi_proximas_entregas
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+
