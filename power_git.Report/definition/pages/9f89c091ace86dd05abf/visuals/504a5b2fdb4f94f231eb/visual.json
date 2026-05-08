@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "504a5b2fdb4f94f231eb",
+  "position": {
+    "x": 31,
+    "y": 285,
+    "z": 1,
+    "height": 275,
+    "width": 598,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": " <Id entrega: id unico por entrega"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "fecha: es la fecha en la qie se ha etregado"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "desc_provee: descripcion proveedor, tengo 8 proveedores"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "fecha_entrega: del 1 al 20 de abril"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "cod_proveedor: el proveedor tiene un codi"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

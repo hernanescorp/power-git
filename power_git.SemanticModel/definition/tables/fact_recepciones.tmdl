@@ -1,4 +1,4 @@
-table fact_proximas_entregas
+table fact_recepciones
 	lineageTag: ee4ef1b9-7305-4bc9-9c9a-5b86822dc534
 
 	column id_entrega
@@ -20,15 +20,10 @@ table fact_proximas_entregas
 
 	column fecha_entrega
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: bfac44d8-dd34-4220-8697-9bad7bb0adf9
 		summarizeBy: none
 		sourceColumn: fecha_entrega
-
-		variation Variación
-			isDefault
-			relationship: 1d1924df-43ab-405e-a52d-9379bae866b6
-			defaultHierarchy: LocalDateTable_f6861b10-6910-4a64-99cc-45545ed18aff.'Jerarquía de fechas'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -59,7 +54,7 @@ table fact_proximas_entregas
 
 		annotation SummarizationSetBy = Automatic
 
-	partition fact_proximas_entregas = m
+	partition fact_recepciones = m
 		mode: import
 		source =
 				let
@@ -67,6 +62,8 @@ table fact_proximas_entregas
 				    pbi_proximas_entregas = Origen{[Schema="pbi",Item="proximas_entregas"]}[Data]
 				in
 				    pbi_proximas_entregas
+
+	changedProperty = Name
 
 	annotation PBI_NavigationStepName = Navegación
 

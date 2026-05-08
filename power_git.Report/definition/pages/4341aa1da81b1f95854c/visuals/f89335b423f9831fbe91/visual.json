@@ -1,0 +1,234 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "f89335b423f9831fbe91",
+  "position": {
+    "x": 226.33333333333334,
+    "y": 42.333333333333336,
+    "z": 0,
+    "height": 383.33333333333331,
+    "width": 470.66666666666669,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_movimientos_almacen"
+                    }
+                  },
+                  "Property": "cod_producto"
+                }
+              },
+              "queryRef": "fact_movimientos_almacen.cod_producto",
+              "nativeQueryRef": "cod_producto"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_movimientos_almacen"
+                        }
+                      },
+                      "Property": "ctd"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_movimientos_almacen.ctd)",
+              "nativeQueryRef": "Suma de ctd"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_movimientos_almacen"
+                    }
+                  },
+                  "Property": "fecha"
+                }
+              },
+              "queryRef": "fact_movimientos_almacen.fecha",
+              "nativeQueryRef": "fecha"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_movimientos_almacen"
+                    }
+                  },
+                  "Property": "tipo_movimiento"
+                }
+              },
+              "queryRef": "fact_movimientos_almacen.tipo_movimiento",
+              "nativeQueryRef": "tipo_movimiento"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_movimientos_almacen"
+                    }
+                  },
+                  "Property": "Almacen"
+                }
+              },
+              "queryRef": "fact_movimientos_almacen.Almacen",
+              "nativeQueryRef": "Almacen"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_movimientos_almacen"
+                  }
+                },
+                "Property": "fecha"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b9ef025e43071af1d114",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_movimientos_almacen"
+              }
+            },
+            "Property": "cod_producto"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fact_movimientos_almacen",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "cod_producto"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'P-001'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "f0c1612d8d01ed33fa91",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_movimientos_almacen"
+                  }
+                },
+                "Property": "ctd"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "42ea2de8a1f153419f23",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_movimientos_almacen"
+              }
+            },
+            "Property": "fecha"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a856c4603a3c68dd21b8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_movimientos_almacen"
+              }
+            },
+            "Property": "tipo_movimiento"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c7c561672c5697331663",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_movimientos_almacen"
+              }
+            },
+            "Property": "Almacen"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

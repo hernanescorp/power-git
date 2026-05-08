@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "573abd57e0cac4993aad",
+  "position": {
+    "x": 348,
+    "y": 30.666666666666668,
+    "z": 2,
+    "height": 150,
+    "width": 598,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_recepciones"
+                    }
+                  },
+                  "Property": "fecha_entrega"
+                }
+              },
+              "queryRef": "fact_recepciones.fecha_entrega",
+              "nativeQueryRef": "fecha_entrega"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_recepciones"
+                        }
+                      },
+                      "Property": "cantidad"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_recepciones.cantidad)",
+              "nativeQueryRef": "Suma de cantidad"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ccaff419a7a4be02a7ad",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_recepciones"
+              }
+            },
+            "Property": "fecha_entrega"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "90f387506c6b90b6f0f8",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_recepciones"
+                  }
+                },
+                "Property": "cantidad"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

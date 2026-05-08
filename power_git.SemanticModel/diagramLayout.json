@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 6.9814168063537645,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 1113,
-            "y": 649.5
+            "x": 1087.001673281339,
+            "y": 477.76892310890753
           },
           "nodeIndex": "fact_inventarios",
           "nodeLineageTag": "cdeef41c-7aa0-4341-89ab-f3f63015f492",
@@ -19,20 +19,21 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 1110,
-            "y": 325.5
+            "x": 1091.7557352123135,
+            "y": 271.13574103759458
           },
           "nodeIndex": "fact_movimientos_almacen",
           "nodeLineageTag": "313bbb06-d095-4692-9988-c1cb84ad65dd",
           "size": {
-            "height": 200,
+            "height": 152,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 5,
+          "expandedHeight": 200
         },
         {
           "location": {
@@ -45,12 +46,12 @@
             "height": 200,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
             "x": 117,
-            "y": 540
+            "y": 512.42369976523059
           },
           "nodeIndex": "dim_almacen",
           "nodeLineageTag": "e13ae8ce-3785-4b30-99a9-6730eb4b2197",
@@ -58,37 +59,37 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 687,
-            "y": 0
+            "x": 449.42438228357537,
+            "y": 37.156376230530867
           },
           "nodeIndex": "dim_time",
           "nodeLineageTag": "cee6c456-b795-42f6-9c7f-b1621a332a1c",
           "size": {
-            "height": 200,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 6,
+          "expandedHeight": 200
         },
         {
           "location": {
-            "x": 1317.8106124363464,
-            "y": 115.22991391678627
+            "x": 1094.3128334665982,
+            "y": 7.8816555640520018
           },
-          "nodeIndex": "fact_proximas_entregas",
-          "nodeLineageTag": "ee4ef1b9-7305-4bc9-9c9a-5b86822dc534",
+          "nodeIndex": "fact_recepciones",
           "size": {
             "height": 224,
-            "width": 234
+            "width": 237.37450038345855
           },
           "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
-      "zoomValue": 56.597645148193266,
+      "zoomValue": 100.26618083637871,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

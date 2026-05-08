@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "136110f68de5598debe7",
+  "position": {
+    "x": 30.666666666666668,
+    "y": 0,
+    "z": 0,
+    "height": 274.66666666666669,
+    "width": 299.33333333333331,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_recepciones"
+                    }
+                  },
+                  "Property": "cod_proveedor"
+                }
+              },
+              "queryRef": "fact_recepciones.cod_proveedor",
+              "nativeQueryRef": "cod_proveedor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_recepciones"
+                    }
+                  },
+                  "Property": "desc_proveedor"
+                }
+              },
+              "queryRef": "fact_recepciones.desc_proveedor",
+              "nativeQueryRef": "desc_proveedor"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b7613b8e0a38e70b9a43",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_recepciones"
+              }
+            },
+            "Property": "cod_proveedor"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2c7952d52b4e05790736",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_recepciones"
+              }
+            },
+            "Property": "desc_proveedor"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
