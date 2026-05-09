@@ -9,6 +9,14 @@ table dim_almacen
 
 		annotation SummarizationSetBy = Automatic
 
+	column descripcion_almacen
+		dataType: string
+		lineageTag: 407bcd5d-2303-4a07-8025-fd0faefb6740
+		summarizeBy: none
+		sourceColumn: descripcion_almacen
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_almacen = m
 		mode: import
 		queryGroup: dimensiones
@@ -18,9 +26,12 @@ table dim_almacen
 				    #"Otras columnas quitadas" = Table.SelectColumns(Origen,{"Column2"}),
 				    #"Encabezados promovidos" = Table.PromoteHeaders(#"Otras columnas quitadas", [PromoteAllScalars=true]),
 				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"Almacen", type text}}),
-				    #"Duplicados quitados" = Table.Distinct(#"Tipo cambiado")
+				    #"Duplicados quitados" = Table.Distinct(#"Tipo cambiado"),
+				    #"Consultas combinadas" = Table.NestedJoin(#"Duplicados quitados", {"Almacen"}, DIM_Empleados, {"Almacen"}, "DIM_Empleados", JoinKind.Inner),
+				    #"Se expandió DIM_Empleados" = Table.ExpandTableColumn(#"Consultas combinadas", "DIM_Empleados", {"descripcion_almacen"}, {"descripcion_almacen"}),
+				    #"Duplicados quitados1" = Table.Distinct(#"Se expandió DIM_Empleados", {"Almacen"})
 				in
-				    #"Duplicados quitados"
+				    #"Duplicados quitados1"
 
 	annotation PBI_NavigationStepName = Navegación
 

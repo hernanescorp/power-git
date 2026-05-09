@@ -1,0 +1,66 @@
+table DIM_Empleados
+	lineageTag: 73e040cb-2d00-449f-b8b9-76134b8fb978
+
+	column EmpleadoID
+		dataType: int64
+		formatString: 0
+		lineageTag: a7e51b53-57b1-4d6b-8fc2-921cccc18c21
+		summarizeBy: count
+		sourceColumn: EmpleadoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nombre
+		dataType: string
+		lineageTag: 2364e553-a0a2-46b8-8c5b-098ea2f331ef
+		summarizeBy: none
+		sourceColumn: Nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Apellidos
+		dataType: string
+		lineageTag: 40aac4ff-922f-45a0-a884-62f98b25c6c4
+		summarizeBy: none
+		sourceColumn: Apellidos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Correo
+		dataType: string
+		lineageTag: 6972b658-4281-49a6-894b-c8a872ddd3d1
+		summarizeBy: none
+		sourceColumn: Correo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Almacen
+		dataType: string
+		lineageTag: 442fe783-2bf5-4a77-b178-f46f6ab53f38
+		summarizeBy: none
+		sourceColumn: Almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_almacen
+		dataType: string
+		lineageTag: 6d185b16-f7c7-4258-8313-88853b724b22
+		summarizeBy: none
+		sourceColumn: descripcion_almacen
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_Empleados = m
+		mode: import
+		queryGroup: dimensiones
+		source =
+				let
+				    Origen = Sql.Database("graxiano.database.windows.net", "free-sql-db-3910009"),
+				    pbi_DIM_Empleados = Origen{[Schema="pbi",Item="DIM_Empleados"]}[Data]
+				in
+				    pbi_DIM_Empleados
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

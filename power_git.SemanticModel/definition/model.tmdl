@@ -19,7 +19,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["fact_inventarios","fact_movimientos_almacen","dim_productos","dim_almacen","dim_proveedores","fact_recepciones"]
+annotation PBI_QueryOrder = ["fact_inventarios","fact_movimientos_almacen","dim_productos","dim_almacen","DIM_Empleados","dim_proveedores","fact_recepciones"]
 
 ref table fact_inventarios
 ref table fact_movimientos_almacen
@@ -27,6 +27,7 @@ ref table dim_productos
 ref table dim_almacen
 ref table dim_time
 ref table fact_recepciones
+ref table DIM_Empleados
 
 ref cultureInfo es-ES
 

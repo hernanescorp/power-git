@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 6.9814168063537645,
+        "x": 356.83391537351827,
         "y": 0
       },
       "nodes": [
         {
           "location": {
             "x": 1087.001673281339,
-            "y": 477.76892310890753
+            "y": 481.70975089093355
           },
           "nodeIndex": "fact_inventarios",
           "nodeLineageTag": "cdeef41c-7aa0-4341-89ab-f3f63015f492",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 1091.7557352123135,
-            "y": 271.13574103759458
+            "y": 275.0765688196206
           },
           "nodeIndex": "fact_movimientos_almacen",
           "nodeLineageTag": "313bbb06-d095-4692-9988-c1cb84ad65dd",
@@ -37,8 +37,8 @@
         },
         {
           "location": {
-            "x": 2079,
-            "y": 443.5
+            "x": 2065.0826029650229,
+            "y": 551.82130554435162
           },
           "nodeIndex": "dim_productos",
           "nodeLineageTag": "62596671-fd85-4ddc-af4e-6c52b39eabff",
@@ -50,8 +50,8 @@
         },
         {
           "location": {
-            "x": 117,
-            "y": 512.42369976523059
+            "x": 98.443470620031007,
+            "y": 597.54934358462094
           },
           "nodeIndex": "dim_almacen",
           "nodeLineageTag": "e13ae8ce-3785-4b30-99a9-6730eb4b2197",
@@ -64,7 +64,7 @@
         {
           "location": {
             "x": 449.42438228357537,
-            "y": 37.156376230530867
+            "y": 41.097204012556887
           },
           "nodeIndex": "dim_time",
           "nodeLineageTag": "cee6c456-b795-42f6-9c7f-b1621a332a1c",
@@ -78,7 +78,7 @@
         {
           "location": {
             "x": 1094.3128334665982,
-            "y": 7.8816555640520018
+            "y": 11.822483346078021
           },
           "nodeIndex": "fact_recepciones",
           "size": {
@@ -86,10 +86,23 @@
             "width": 237.37450038345855
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 629.262377770201,
+            "y": 887.55865157832989
+          },
+          "nodeIndex": "DIM_Empleados",
+          "nodeLineageTag": "73e040cb-2d00-449f-b8b9-76134b8fb978",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas las tablas",
-      "zoomValue": 100.26618083637871,
+      "zoomValue": 43.111509896002786,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

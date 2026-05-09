@@ -26,3 +26,7 @@ relationship 719f321b-eb7e-586f-3620-8feac4a5a3f9
 	fromColumn: fact_recepciones.fecha_entrega
 	toColumn: dim_time.Date
 
+relationship AutoDetected_d0d5ccdf-9b82-49b2-95c5-be10c6f185bb
+	fromColumn: DIM_Empleados.Almacen
+	toColumn: dim_almacen.Almacen
+
